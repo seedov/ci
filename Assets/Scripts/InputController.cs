@@ -1,12 +1,15 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class InputController : MonoBehaviour
 {
+    [SerializeField]
+    private Character _character;
+
     Vector3 moveVector;
     void Update()
     {
         moveVector.x = Input.GetAxis("Horizontal");
         moveVector.y = Input.GetAxis("Vertical");
-        transform.position += moveVector;
+        _character.Move(moveVector);
     }
 }
